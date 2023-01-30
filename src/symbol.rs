@@ -66,6 +66,7 @@ macro_rules! gen_symbol_for {
     ) => {
         $( #[$doc] )*
         #[derive(Debug, Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
+        #[cfg_attr(feature = "serde", derive(serde::Deserialize, serde::Serialize))]
         pub struct $name {
             value: $non_zero,
         }
